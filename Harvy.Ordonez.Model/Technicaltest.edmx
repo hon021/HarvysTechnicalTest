@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TechnicaltestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="IdInvoice" />
+          </Key>
+          <Property Name="IdInvoice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TotalTax" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpadteAt" Type="datetime" />
+          <Property Name="DeleteAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvoiceDetail">
+          <Key>
+            <PropertyRef Name="IdInvoiceDetail" />
+          </Key>
+          <Property Name="IdInvoiceDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdItem" Type="int" />
+          <Property Name="IdInvoice" Type="int" />
+          <Property Name="TaxValue" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Quantity" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpadteAt" Type="datetime" />
+          <Property Name="DeleteAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="IdItem" />
+          </Key>
+          <Property Name="IdItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeItem" Type="varchar" MaxLength="128" />
+          <Property Name="Name" Type="varchar" MaxLength="128" />
+          <Property Name="Quantity" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="SalePrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Photo" Type="varchar" MaxLength="4096" />
+          <Property Name="IsTax" Type="bit" />
+          <Property Name="IsInventory" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpadteAt" Type="datetime" />
+          <Property Name="DeleteAt" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_InvoiceD_InvoiceIN_Invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="InvoiceDetail" Type="Self.InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="IdInvoice" />
+            </Principal>
+            <Dependent Role="InvoiceDetail">
+              <PropertyRef Name="IdInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceD_ItemInvoi_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="InvoiceDetail" Type="Self.InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IdItem" />
+            </Principal>
+            <Dependent Role="InvoiceDetail">
+              <PropertyRef Name="IdItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TechnicaltestModelStoreContainer">
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceDetail" EntityType="Self.InvoiceDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_InvoiceD_InvoiceIN_Invoice" Association="Self.FK_InvoiceD_InvoiceIN_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="InvoiceDetail" EntitySet="InvoiceDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceD_ItemInvoi_Item" Association="Self.FK_InvoiceD_ItemInvoi_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="InvoiceDetail" EntitySet="InvoiceDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TechnicaltestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="IdInvoice" />
+          </Key>
+          <Property Name="IdInvoice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalTax" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpadteAt" Type="DateTime" Precision="3" />
+          <Property Name="DeleteAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="InvoiceDetail" Relationship="Self.FK_InvoiceD_InvoiceIN_Invoice" FromRole="Invoice" ToRole="InvoiceDetail" />
+        </EntityType>
+        <EntityType Name="InvoiceDetail">
+          <Key>
+            <PropertyRef Name="IdInvoiceDetail" />
+          </Key>
+          <Property Name="IdInvoiceDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdItem" Type="Int32" />
+          <Property Name="IdInvoice" Type="Int32" />
+          <Property Name="TaxValue" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Quantity" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpadteAt" Type="DateTime" Precision="3" />
+          <Property Name="DeleteAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Invoice" Relationship="Self.FK_InvoiceD_InvoiceIN_Invoice" FromRole="InvoiceDetail" ToRole="Invoice" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_InvoiceD_ItemInvoi_Item" FromRole="InvoiceDetail" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="IdItem" />
+          </Key>
+          <Property Name="IdItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeItem" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="SalePrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Photo" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+          <Property Name="IsTax" Type="Boolean" />
+          <Property Name="IsInventory" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpadteAt" Type="DateTime" Precision="3" />
+          <Property Name="DeleteAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="InvoiceDetail" Relationship="Self.FK_InvoiceD_ItemInvoi_Item" FromRole="Item" ToRole="InvoiceDetail" />
+        </EntityType>
+        <Association Name="FK_InvoiceD_InvoiceIN_Invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="InvoiceDetail" Type="Self.InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="IdInvoice" />
+            </Principal>
+            <Dependent Role="InvoiceDetail">
+              <PropertyRef Name="IdInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceD_ItemInvoi_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="InvoiceDetail" Type="Self.InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IdItem" />
+            </Principal>
+            <Dependent Role="InvoiceDetail">
+              <PropertyRef Name="IdItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TechnicaltestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" />
+          <EntitySet Name="InvoiceDetail" EntityType="Self.InvoiceDetail" />
+          <EntitySet Name="Item" EntityType="Self.Item" />
+          <AssociationSet Name="FK_InvoiceD_InvoiceIN_Invoice" Association="Self.FK_InvoiceD_InvoiceIN_Invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="InvoiceDetail" EntitySet="InvoiceDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceD_ItemInvoi_Item" Association="Self.FK_InvoiceD_ItemInvoi_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="InvoiceDetail" EntitySet="InvoiceDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TechnicaltestModelStoreContainer" CdmEntityContainer="TechnicaltestEntities">
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="TechnicaltestModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="IdInvoice" ColumnName="IdInvoice" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TotalTax" ColumnName="TotalTax" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpadteAt" ColumnName="UpadteAt" />
+                <ScalarProperty Name="DeleteAt" ColumnName="DeleteAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceDetail">
+            <EntityTypeMapping TypeName="TechnicaltestModel.InvoiceDetail">
+              <MappingFragment StoreEntitySet="InvoiceDetail">
+                <ScalarProperty Name="IdInvoiceDetail" ColumnName="IdInvoiceDetail" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="IdInvoice" ColumnName="IdInvoice" />
+                <ScalarProperty Name="TaxValue" ColumnName="TaxValue" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpadteAt" ColumnName="UpadteAt" />
+                <ScalarProperty Name="DeleteAt" ColumnName="DeleteAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="TechnicaltestModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="TypeItem" ColumnName="TypeItem" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IsTax" ColumnName="IsTax" />
+                <ScalarProperty Name="IsInventory" ColumnName="IsInventory" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpadteAt" ColumnName="UpadteAt" />
+                <ScalarProperty Name="DeleteAt" ColumnName="DeleteAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

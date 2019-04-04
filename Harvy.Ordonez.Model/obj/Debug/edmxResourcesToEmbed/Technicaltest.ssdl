@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechnicaltestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="IdInvoice" />
+    </Key>
+    <Property Name="IdInvoice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="TotalTax" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpadteAt" Type="datetime" />
+    <Property Name="DeleteAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InvoiceDetail">
+    <Key>
+      <PropertyRef Name="IdInvoiceDetail" />
+    </Key>
+    <Property Name="IdInvoiceDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdItem" Type="int" />
+    <Property Name="IdInvoice" Type="int" />
+    <Property Name="TaxValue" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Quantity" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpadteAt" Type="datetime" />
+    <Property Name="DeleteAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="IdItem" />
+    </Key>
+    <Property Name="IdItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeItem" Type="varchar" MaxLength="128" />
+    <Property Name="Name" Type="varchar" MaxLength="128" />
+    <Property Name="Quantity" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="SalePrice" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Photo" Type="varchar" MaxLength="4096" />
+    <Property Name="IsTax" Type="bit" />
+    <Property Name="IsInventory" Type="bit" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpadteAt" Type="datetime" />
+    <Property Name="DeleteAt" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_InvoiceD_InvoiceIN_Invoice">
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+    <End Role="InvoiceDetail" Type="Self.InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="IdInvoice" />
+      </Principal>
+      <Dependent Role="InvoiceDetail">
+        <PropertyRef Name="IdInvoice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceD_ItemInvoi_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+    <End Role="InvoiceDetail" Type="Self.InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="IdItem" />
+      </Principal>
+      <Dependent Role="InvoiceDetail">
+        <PropertyRef Name="IdItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TechnicaltestModelStoreContainer">
+    <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceDetail" EntityType="Self.InvoiceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_InvoiceD_InvoiceIN_Invoice" Association="Self.FK_InvoiceD_InvoiceIN_Invoice">
+      <End Role="Invoice" EntitySet="Invoice" />
+      <End Role="InvoiceDetail" EntitySet="InvoiceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceD_ItemInvoi_Item" Association="Self.FK_InvoiceD_ItemInvoi_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="InvoiceDetail" EntitySet="InvoiceDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

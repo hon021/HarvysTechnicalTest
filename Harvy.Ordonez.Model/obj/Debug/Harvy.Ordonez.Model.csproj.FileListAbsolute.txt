@@ -1,0 +1,10 @@
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\bin\Debug\Harvy.Ordonez.Model.dll.config
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\bin\Debug\Harvy.Ordonez.Model.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\bin\Debug\Harvy.Ordonez.Model.pdb
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\bin\Debug\EntityFramework.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\bin\Debug\EntityFramework.xml
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\obj\Debug\Harvy.Ordonez.Model.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\obj\Debug\Harvy.Ordonez.Model.pdb
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Model\obj\Debug\Harvy.Ordonez.Model.csprojResolveAssemblyReference.cache

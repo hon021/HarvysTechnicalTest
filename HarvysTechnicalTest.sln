@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Harvy", "Harvy", "{53AA14F3-57CB-42C2-B5CE-1B38FD8F4106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harvy.Ordonez.API", "Harvy.Ordonez.API\Harvy.Ordonez.API.csproj", "{FC64AF97-9223-4A56-8480-C46A130E3434}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harvy.Ordonez.Model", "Harvy.Ordonez.Model\Harvy.Ordonez.Model.csproj", "{8706BA2C-9728-4819-B84F-512658A5F7EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harvy.Ordonez.Services", "Harvy.Ordonez.Services\Harvy.Ordonez.Services.csproj", "{C3FDC81D-D92D-44A5-9965-62D5B1C4EE36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC64AF97-9223-4A56-8480-C46A130E3434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC64AF97-9223-4A56-8480-C46A130E3434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC64AF97-9223-4A56-8480-C46A130E3434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC64AF97-9223-4A56-8480-C46A130E3434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8706BA2C-9728-4819-B84F-512658A5F7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8706BA2C-9728-4819-B84F-512658A5F7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8706BA2C-9728-4819-B84F-512658A5F7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8706BA2C-9728-4819-B84F-512658A5F7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3FDC81D-D92D-44A5-9965-62D5B1C4EE36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3FDC81D-D92D-44A5-9965-62D5B1C4EE36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3FDC81D-D92D-44A5-9965-62D5B1C4EE36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3FDC81D-D92D-44A5-9965-62D5B1C4EE36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC64AF97-9223-4A56-8480-C46A130E3434} = {53AA14F3-57CB-42C2-B5CE-1B38FD8F4106}
+		{8706BA2C-9728-4819-B84F-512658A5F7EB} = {53AA14F3-57CB-42C2-B5CE-1B38FD8F4106}
+		{C3FDC81D-D92D-44A5-9965-62D5B1C4EE36} = {53AA14F3-57CB-42C2-B5CE-1B38FD8F4106}
+	EndGlobalSection
+EndGlobal

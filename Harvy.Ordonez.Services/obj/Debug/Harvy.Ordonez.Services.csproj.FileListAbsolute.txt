@@ -1,0 +1,12 @@
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\Harvy.Ordonez.Services.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\Harvy.Ordonez.Services.pdb
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\Harvy.Ordonez.Model.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\EntityFramework.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\Harvy.Ordonez.Model.pdb
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\EntityFramework.xml
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\obj\Debug\Harvy.Ordonez.Services.csprojResolveAssemblyReference.cache
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\obj\Debug\Harvy.Ordonez.Services.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\obj\Debug\Harvy.Ordonez.Services.pdb
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\Harvy.Ordonez.Services.dll.config
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\EntityFramework.SqlServer.dll
+D:\Desarrollo\Net\HarvysTechnicalTest\Harvy.Ordonez.Services\bin\Debug\EntityFramework.SqlServer.xml
